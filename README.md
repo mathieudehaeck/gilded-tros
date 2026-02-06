@@ -44,4 +44,19 @@ pnpm run test
 
 # Run the tests in watch mode
 pnpm run test:watch
+
+# Check code quality (format + lint)
+pnpm run check
+
+# Check code formatting
+pnpm run format
+
+# Fix code formatting
+pnpm run format:fix
+
+# Check linting
+pnpm run lint
+
+# Fix linting issues
+pnpm run lint:fix
 ```
