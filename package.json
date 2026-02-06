@@ -1,12 +1,12 @@
 {
-  "name": "gildedtros",
+  "name": "@axxes/gilded-tros",
   "private": true,
   "version": "1.0.0",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "mock": "node dist/test/text-test-fixture.js",
+    "mock:gen": "node dist/test/text-test-fixture.js",
     "test": "jest",
     "test:watch": "jest --watchAll"
   },
