@@ -9,8 +9,8 @@
     "mock:gen": "node dist/test/text-test-fixture.js",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix --max-warnings 0",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "check": "pnpm format && pnpm lint"

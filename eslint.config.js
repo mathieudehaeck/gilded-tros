@@ -24,6 +24,7 @@ module.exports = tseslint.config(
         "error",
         { argsIgnorePattern: "^_" },
       ],
+      eqeqeq: ["error", "always"],
     },
-  },
+  }
 );
