@@ -1,0 +1,26 @@
+{
+  "name": "gildedtros",
+  "private": true,
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "mock": "node dist/test/text-test-fixture.js",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "devDependencies": {
+    "@types/jest": "26.0.24",
+    "@types/node": "25.2.1",
+    "babel-jest": "29.3.1",
+    "jest": "26.6.3",
+    "ts-jest": "26.5.6",
+    "typescript": "4.9.4"
+  },
+  "packageManager": "pnpm@10.28.2",
+  "engines": {
+    "node": "^22.19.0",
+    "pnpm": "10.28.2"
+  }
+}
