@@ -104,20 +104,18 @@ export class GildedTros {
   // Note: Using `typeof` for type narrowing because Item.name must remain 'string' type per requirements
   // If Item class could be modified, these would be simpler: `item is Item & { name: ItemName.LEGENDARY }`
   private isLegendary(
-    item: Item
+    item: Item,
   ): item is Item & { name: typeof ITEM_NAMES.LEGENDARY } {
     return item.name === ITEM_NAMES.LEGENDARY;
   }
 
   private isGoodWine(
-    item: Item
+    item: Item,
   ): item is Item & { name: typeof ITEM_NAMES.GOOD_WINE } {
     return item.name === ITEM_NAMES.GOOD_WINE;
   }
 
-  private isBackstagePass(
-    item: Item
-  ): item is Item & {
+  private isBackstagePass(item: Item): item is Item & {
     name:
       | typeof ITEM_NAMES.BACKSTAGE_REFACTOR
       | typeof ITEM_NAMES.BACKSTAGE_HAXX;
@@ -128,9 +126,7 @@ export class GildedTros {
     );
   }
 
-  private isSmelly(
-    item: Item
-  ): item is Item & {
+  private isSmelly(item: Item): item is Item & {
     name:
       | typeof ITEM_NAMES.DUPLICATE_CODE
       | typeof ITEM_NAMES.LONG_METHODS

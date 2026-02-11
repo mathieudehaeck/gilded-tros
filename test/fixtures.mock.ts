@@ -10,17 +10,17 @@ import { ITEM_NAMES } from "../src/item.constants";
 export const mockNormalItem = new Item(
   ITEM_NAMES.RING_OF_CLEANSENING_CODE,
   10,
-  20
+  20,
 );
 export const mockNormalItemExpired = new Item(
   ITEM_NAMES.RING_OF_CLEANSENING_CODE,
   0,
-  10
+  10,
 );
 export const mockNormalItemZeroQuality = new Item(
   ITEM_NAMES.RING_OF_CLEANSENING_CODE,
   5,
-  0
+  0,
 );
 
 // Good Wine
@@ -33,34 +33,34 @@ export const mockLegendaryItem = new Item(ITEM_NAMES.LEGENDARY, 0, 80);
 export const mockLegendaryItemNegativeSellIn = new Item(
   ITEM_NAMES.LEGENDARY,
   -1,
-  80
+  80,
 );
 
 // Backstage Passes
 export const mockBackstagePassDistant = new Item(
   ITEM_NAMES.BACKSTAGE_REFACTOR,
   15,
-  20
+  20,
 );
 export const mockBackstagePass10Days = new Item(
   ITEM_NAMES.BACKSTAGE_REFACTOR,
   10,
-  20
+  20,
 );
 export const mockBackstagePass5Days = new Item(
   ITEM_NAMES.BACKSTAGE_REFACTOR,
   5,
-  20
+  20,
 );
 export const mockBackstagePassExpired = new Item(
   ITEM_NAMES.BACKSTAGE_REFACTOR,
   0,
-  20
+  20,
 );
 export const mockBackstagePassNearMax = new Item(
   ITEM_NAMES.BACKSTAGE_REFACTOR,
   5,
-  49
+  49,
 );
 export const mockBackstagePassHAXX = new Item(ITEM_NAMES.BACKSTAGE_HAXX, 5, 20);
 
@@ -68,23 +68,23 @@ export const mockBackstagePassHAXX = new Item(ITEM_NAMES.BACKSTAGE_HAXX, 5, 20);
 export const mockSmellyItemDuplicateCode = new Item(
   ITEM_NAMES.DUPLICATE_CODE,
   10,
-  20
+  20,
 );
 export const mockSmellyItemLongMethods = new Item(
   ITEM_NAMES.LONG_METHODS,
   10,
-  20
+  20,
 );
 export const mockSmellyItemUglyVariables = new Item(
   ITEM_NAMES.UGLY_VARIABLE_NAMES,
   10,
-  20
+  20,
 );
 export const mockSmellyItemExpired = new Item(ITEM_NAMES.DUPLICATE_CODE, 0, 20);
 export const mockSmellyItemZeroQuality = new Item(
   ITEM_NAMES.DUPLICATE_CODE,
   5,
-  0
+  0,
 );
 
 // Multi-day simulation items
