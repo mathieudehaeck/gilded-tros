@@ -1,22 +1,21 @@
-const eslint = require("@eslint/js");
-const tseslint = require("typescript-eslint");
-const prettierConfig = require("eslint-config-prettier");
+import { defineConfig } from "eslint/config";
+import eslint from "@eslint/js";
+import tseslint from "typescript-eslint";
+import prettierConfig from "eslint-config-prettier";
 
-module.exports = tseslint.config(
+export default defineConfig([
   {
     ignores: ["node_modules", "dist", "coverage"],
   },
+  eslint.configs.recommended,
+  ...tseslint.configs.recommendedTypeChecked,
+  prettierConfig,
   {
     files: ["**/*.ts"],
-    extends: [
-      eslint.configs.recommended,
-      ...tseslint.configs.recommendedTypeChecked,
-      prettierConfig,
-    ],
     languageOptions: {
       parserOptions: {
         projectService: true,
-        tsconfigRootDir: __dirname,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
     rules: {
@@ -27,4 +26,4 @@ module.exports = tseslint.config(
       eqeqeq: ["error", "always"],
     },
   },
-);
+]);

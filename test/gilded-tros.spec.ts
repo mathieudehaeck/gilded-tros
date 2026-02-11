@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { Item } from "../src/item";
 import { GildedTros } from "../src/gilded-tros";
 import { ITEM_NAMES } from "../src/item.constants";

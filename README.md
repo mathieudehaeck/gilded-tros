@@ -38,7 +38,7 @@ pnpm install
 # Build the project (compile TypeScript to JavaScript)
 pnpm run build
 
-# Run demo simulation (shows item quality changes over time)
+# Run demo simulation directly with tsx (no build required)
 pnpm run demo
 
 # Run demo for custom number of days (e.g., 10 days)
@@ -49,17 +49,26 @@ pnpm run demo 10
 
 ```bash
 # Run all tests
-pnpm run test
+pnpm test
 
 # Run tests in watch mode (auto-rerun on file changes)
 pnpm run test:watch
+
+# Run tests with coverage report
+pnpm run test:coverage
+
+# Open interactive UI for tests (modern test explorer)
+pnpm run test:ui
 ```
 
 ### Code Quality
 
 ```bash
-# Check code quality (runs format + lint checks)
+# Check code quality (runs format + lint + type:check)
 pnpm run check
+
+# Run TypeScript type checking
+pnpm run type:check
 
 # Check code formatting
 pnpm run format
@@ -73,3 +82,13 @@ pnpm run lint
 # Auto-fix linting issues
 pnpm run lint:fix
 ```
+
+## Tech Stack
+
+- **TypeScript 5.9** - Modern TypeScript with strict mode
+- **Vitest 4.0** - Lightning-fast test runner with native ESM support
+- **tsx 4.21** - Run TypeScript directly without compilation
+- **ESLint 9.39** - Modern flat config for code quality
+- **Prettier 3.8** - Consistent code formatting
+- **ESM** - Native ES modules (`type: "module"`)
+- **Node.js 22** - LTS version with latest features
