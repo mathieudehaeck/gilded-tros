@@ -20,7 +20,7 @@ import {
   mockSmellyItemExpired,
   mockSmellyItemZeroQuality,
   mockMultiDayItems,
-} from "./fixtures.mock";
+} from "./gilded-tros.mock";
 
 describe("Gilded Tros", () => {
   describe("Normal Items", () => {
