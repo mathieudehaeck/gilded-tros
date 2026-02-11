@@ -1,16 +1,6 @@
-type ItemName =
-  | "Good Wine"
-  | "Backstage passes for Re:Factor"
-  | "Backstage passes for HAXX"
-  | "B-DAWG Keychain"
-  | "Ring of Cleansening Code"
-  | "Duplicate Code"
-  | "Long Methods"
-  | "Ugly Variable Names"
-  | "Elixir of the SOLID";
 export class Item {
   constructor(
-    public name: ItemName,
+    public name: string, // Note: Type must remain 'string' (instead of ItemName type from item.types.ts) per requirements: "Item class is immutable"
     public sellIn: number,
     public quality: number
   ) {}
