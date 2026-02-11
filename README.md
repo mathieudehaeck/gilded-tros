@@ -16,7 +16,7 @@ Have fun and good luck!
 
 - **[Node.js](https://nodejs.org/)**: Version 22.19.0 or higher
 - **[nvm](https://github.com/nvm-sh/nvm)** or **[n](https://github.com/tj/n)**: Node version manager
-- **[pnpm](https://pnpm.io/)**: Version 10.28.2 or higher
+- **[pnpm](https://pnpm.io/)**: Version 10.29.3 or higher
 
 ### Installation
 
