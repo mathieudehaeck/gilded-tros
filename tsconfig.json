@@ -1,18 +1,23 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ES2022",
     "module": "commonjs",
-    "sourceMap": false,
+    "lib": ["ES2022"],
+    "sourceMap": true,
     "outDir": "./dist",
     "rootDir": "./",
     "removeComments": true,
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["**/src", "test/**.spec.ts", "scripts/**/*.ts"]
+  "include": ["src/**/*", "scripts/**/*", "test/**/*.spec.ts"],
+  "exclude": ["node_modules", "dist"]
 }
