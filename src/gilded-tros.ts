@@ -36,6 +36,12 @@ export class GildedTros {
       return;
     }
 
+    // Smelly items degrade twice as fast as normal items
+    if (this.isSmelly(item)) {
+      this.decreaseQuality(item, 2);
+      return;
+    }
+
     // Normal items degrade in quality
     this.decreaseQuality(item);
   }
@@ -84,6 +90,12 @@ export class GildedTros {
       return;
     }
 
+    // Smelly items degrade four times as fast after expiration (2x base degradation)
+    if (this.isSmelly(item)) {
+      this.decreaseQuality(item, 2);
+      return;
+    }
+
     // Normal items degrade twice as fast after expiration
     this.decreaseQuality(item);
   }
@@ -113,6 +125,21 @@ export class GildedTros {
     return (
       item.name === ITEM_NAMES.BACKSTAGE_REFACTOR ||
       item.name === ITEM_NAMES.BACKSTAGE_HAXX
+    );
+  }
+
+  private isSmelly(
+    item: Item
+  ): item is Item & {
+    name:
+      | typeof ITEM_NAMES.DUPLICATE_CODE
+      | typeof ITEM_NAMES.LONG_METHODS
+      | typeof ITEM_NAMES.UGLY_VARIABLE_NAMES;
+  } {
+    return (
+      item.name === ITEM_NAMES.DUPLICATE_CODE ||
+      item.name === ITEM_NAMES.LONG_METHODS ||
+      item.name === ITEM_NAMES.UGLY_VARIABLE_NAMES
     );
   }
 

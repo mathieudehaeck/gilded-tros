@@ -14,6 +14,11 @@ import {
   mockBackstagePassExpired,
   mockBackstagePassNearMax,
   mockBackstagePassHAXX,
+  mockSmellyItemDuplicateCode,
+  mockSmellyItemLongMethods,
+  mockSmellyItemUglyVariables,
+  mockSmellyItemExpired,
+  mockSmellyItemZeroQuality,
   mockMultiDayItems,
 } from "./fixtures.mock";
 
@@ -160,6 +165,57 @@ describe("Gilded Tros", () => {
       app.updateQuality();
 
       expect(items[0].quality).toBe(50); // capped at 50
+    });
+  });
+
+  describe("Smelly Items", () => {
+    it("should degrade quality twice as fast for Duplicate Code", () => {
+      const items = [mockSmellyItemDuplicateCode];
+      const app = new GildedTros(items);
+
+      app.updateQuality();
+
+      expect(items[0].sellIn).toBe(9);
+      expect(items[0].quality).toBe(18); // -2 per day (twice as fast as normal)
+    });
+
+    it("should degrade quality twice as fast for Long Methods", () => {
+      const items = [mockSmellyItemLongMethods];
+      const app = new GildedTros(items);
+
+      app.updateQuality();
+
+      expect(items[0].sellIn).toBe(9);
+      expect(items[0].quality).toBe(18); // -2 per day
+    });
+
+    it("should degrade quality twice as fast for Ugly Variable Names", () => {
+      const items = [mockSmellyItemUglyVariables];
+      const app = new GildedTros(items);
+
+      app.updateQuality();
+
+      expect(items[0].sellIn).toBe(9);
+      expect(items[0].quality).toBe(18); // -2 per day
+    });
+
+    it("should degrade four times as fast after sell by date", () => {
+      const items = [mockSmellyItemExpired];
+      const app = new GildedTros(items);
+
+      app.updateQuality();
+
+      expect(items[0].sellIn).toBe(-1);
+      expect(items[0].quality).toBe(16); // -4 per day (twice as fast as normal expired)
+    });
+
+    it("should never have negative quality", () => {
+      const items = [mockSmellyItemZeroQuality];
+      const app = new GildedTros(items);
+
+      app.updateQuality();
+
+      expect(items[0].quality).toBe(0);
     });
   });
 

@@ -64,6 +64,29 @@ export const mockBackstagePassNearMax = new Item(
 );
 export const mockBackstagePassHAXX = new Item(ITEM_NAMES.BACKSTAGE_HAXX, 5, 20);
 
+// Smelly Items
+export const mockSmellyItemDuplicateCode = new Item(
+  ITEM_NAMES.DUPLICATE_CODE,
+  10,
+  20
+);
+export const mockSmellyItemLongMethods = new Item(
+  ITEM_NAMES.LONG_METHODS,
+  10,
+  20
+);
+export const mockSmellyItemUglyVariables = new Item(
+  ITEM_NAMES.UGLY_VARIABLE_NAMES,
+  10,
+  20
+);
+export const mockSmellyItemExpired = new Item(ITEM_NAMES.DUPLICATE_CODE, 0, 20);
+export const mockSmellyItemZeroQuality = new Item(
+  ITEM_NAMES.DUPLICATE_CODE,
+  5,
+  0
+);
+
 // Multi-day simulation items
 export const mockMultiDayItems = {
   normalItem: new Item(ITEM_NAMES.RING_OF_CLEANSENING_CODE, 10, 20),
