@@ -1,6 +1,6 @@
 export class Item {
   constructor(
-    public name: string, // Note: Type must remain 'string' (instead of ItemName type from item.types.ts) per requirements: "Item class is immutable"
+    public name: string,
     public sellIn: number,
     public quality: number,
   ) {}

@@ -1,4 +1,6 @@
+import { Item } from "../src/item";
 import { GildedTros } from "../src/gilded-tros";
+import { ITEM_NAMES } from "../src/item.constants";
 import {
   mockNormalItem,
   mockNormalItemExpired,
@@ -216,6 +218,55 @@ describe("Gilded Tros", () => {
       app.updateQuality();
 
       expect(items[0].quality).toBe(0);
+    });
+  });
+
+  describe("Critical Edge Cases", () => {
+    it("backstage pass at exactly 11 days should increase by 1", () => {
+      const items = [new Item(ITEM_NAMES.BACKSTAGE_REFACTOR, 11, 20)];
+      const app = new GildedTros(items);
+
+      app.updateQuality();
+
+      expect(items[0].sellIn).toBe(10);
+      expect(items[0].quality).toBe(21); // Only +1, not +2 yet
+    });
+
+    it("backstage pass at exactly 6 days should increase by 2", () => {
+      const items = [new Item(ITEM_NAMES.BACKSTAGE_REFACTOR, 6, 20)];
+      const app = new GildedTros(items);
+
+      app.updateQuality();
+
+      expect(items[0].sellIn).toBe(5);
+      expect(items[0].quality).toBe(22); // +2, not +3 yet
+    });
+
+    it("quality should never exceed 50 even with multiple increases", () => {
+      const items = [new Item(ITEM_NAMES.GOOD_WINE, 10, 48)];
+      const app = new GildedTros(items);
+
+      app.updateQuality(); // Should be 49
+      app.updateQuality(); // Should be 50
+      app.updateQuality(); // Should stay 50
+
+      expect(items[0].quality).toBe(50);
+    });
+
+    it("smelly item with quality 1 should go to 0 but not negative", () => {
+      const items = [new Item(ITEM_NAMES.DUPLICATE_CODE, 10, 1)];
+      const app = new GildedTros(items);
+
+      app.updateQuality(); // -2 degradation, but should stop at 0
+
+      expect(items[0].quality).toBe(0);
+    });
+
+    it("empty items array should not crash", () => {
+      const items: Item[] = [];
+      const app = new GildedTros(items);
+
+      expect(() => app.updateQuality()).not.toThrow();
     });
   });
 
